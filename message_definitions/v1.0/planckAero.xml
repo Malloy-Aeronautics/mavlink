@@ -25,11 +25,11 @@
             <entry value="30" name="COPTER_MODE_PLANCKWINGMAN"/>
         </enum>
         <enum name="MAV_CMD">
-            <entry value="9011" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
-            <entry value="9012" name="MAV_CMD_NAV_PLANCK_RTB"/>
-            <entry value="9013" name="MAV_CMD_NAV_PLANCK_WINGMAN"/>
-            <entry value="9014" name="MAV_CMD_NAV_PLANCK_LAND"/>
-            <entry value="9015" name="MAV_CMD_NAV_PLANCK_TRACK"/>
+            <entry value="9001" name="MAV_CMD_NAV_PLANCK_TAKEOFF"/>
+            <entry value="9002" name="MAV_CMD_NAV_PLANCK_RTB"/>
+            <entry value="9003" name="MAV_CMD_NAV_PLANCK_WINGMAN"/>
+            <entry value="9004" name="MAV_CMD_NAV_PLANCK_LAND"/>
+            <entry value="9005" name="MAV_CMD_NAV_PLANCK_TRACK"/>
         </enum>
         <enum name="PLANCK_CMD_REQ_TYPE">
             <entry value="0" name="PLANCK_CMD_REQ_TAKEOFF"/>
@@ -118,7 +118,7 @@
            <field type="float[3]" name="acc" units="m/s/s">Accelerations (NED)</field>
            <field type="float[3]" name="att" units="rads">Attitudes (NED)</field>
         </message>
-        <message id="9015" name="PLANCK_CMD_REQUEST">
+        <message id="9005" name="PLANCK_CMD_REQUEST">
            <description>Request commands from planck</description>
            <field type="uint8_t" name="target_system">System which should execute the command</field>
            <field type="uint8_t" name="target_component">Component which should execute the command, 0 for all components</field>
