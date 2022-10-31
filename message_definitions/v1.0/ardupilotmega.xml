@@ -1194,7 +1194,6 @@
       <field type="uint8_t" name="count">Total number of points (for sanity checking).</field>
       <field type="float" name="lat" units="deg">Latitude of point.</field>
       <field type="float" name="lng" units="deg">Longitude of point.</field>
-	  <field type="int32_t" name="alt_msl" units="mm">Altitude in millimeters</field>
     </message>
     <message id="161" name="FENCE_FETCH_POINT">
       <description>Request a current fence point from MAV.</description>
