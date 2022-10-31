@@ -116,7 +116,7 @@
            <field type="float" name="alt" units="m">Altitude in meters</field>
            <field type="float[3]" name="vel" units="m/s">Velocities (NED)</field>
            <field type="float[3]" name="acc" units="m/s/s">Accelerations (NED)</field>
-           <field type="float[3]" name="att" units="rads">Attitudes (NED)</field>
+           <field type="float[3]" name="att" units="rad">Attitudes (NED)</field>
         </message>
         <message id="9005" name="PLANCK_CMD_REQUEST">
            <description>Request commands from planck</description>
@@ -134,30 +134,30 @@
            <description>Estimated state information of the tag relative to the aircraft in NED</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
-           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of the latest estimate in AP clock in microseconds</field>
-           <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the NED frame</field>
-           <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the NED frame</field>
-           <field type="float" name="z" units="meters">Z position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="uint32_t" name="age" units="us">Age of the latest measurement in microseconds</field>
+           <field type="uint64_t" name="ap_timestamp_us" units="us">Timestamp of the latest estimate in AP clock in microseconds</field>
+           <field type="float" name="x" units="m">X position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="y" units="m">Y position of the tag relative to the CG of the aircraft in the NED frame</field>
+           <field type="float" name="z" units="m">Z position of the tag relative to the CG of the aircraft in the NED frame</field>
            <field type="float" name="vx" units="m/s">X velocity of the tag relative to the CG of the aircraft in the NED frame</field>
            <field type="float" name="vy" units="m/s">Y velocity of the tag relative to the CG of the aircraft in the NED frame</field>
            <field type="float" name="vz" units="m/s">Z velocity of the tag relative to the CG of the aircraft in the NED frame</field>
-           <field type="float" name="roll" units="rads">Euler angle roll of the tag in NED frame</field>
-           <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in NED frame</field>
-           <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in NED frame</field>
+           <field type="float" name="roll" units="rad">Euler angle roll of the tag in NED frame</field>
+           <field type="float" name="pitch" units="rad">Euler angle pitch of the tag in NED frame</field>
+           <field type="float" name="yaw" units="rad">Euler angle yaw of the tag in NED frame</field>
         </message>
         <message id="9007" name="PLANCK_LANDING_TAG_MEASUREMENT_BODY">
            <description>Measured state information of the tag relative to the body frame</description>
            <field type="uint8_t" name="target_system">System ID</field>
            <field type="uint8_t" name="target_component">Component ID</field>
-           <field type="uint32_t" name="age" units="microseconds">Age of the latest measurement in microseconds</field>
-           <field type="uint64_t" name="ap_timestamp_us" units="microseconds">Timestamp of this measurement in AP clock in microseconds</field>
-           <field type="float" name="x" units="meters">X position of the tag relative to the CG of the aircraft in the body frame</field>
-           <field type="float" name="y" units="meters">Y position of the tag relative to the CG of the aircraft in the body frame</field>
-           <field type="float" name="z" units="meters">Z position of the tag relative to the CG of the aircraft in the body frame</field>
-           <field type="float" name="roll" units="rads">Euler angle roll of the tag in body frame</field>
-           <field type="float" name="pitch" units="rads">Euler angle pitch of the tag in body frame</field>
-           <field type="float" name="yaw" units="rads">Euler angle yaw of the tag in body frame</field>
+           <field type="uint32_t" name="age" units="us">Age of the latest measurement in microseconds</field>
+           <field type="uint64_t" name="ap_timestamp_us" units="us">Timestamp of this measurement in AP clock in microseconds</field>
+           <field type="float" name="x" units="m">X position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="y" units="m">Y position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="z" units="m">Z position of the tag relative to the CG of the aircraft in the body frame</field>
+           <field type="float" name="roll" units="rad">Euler angle roll of the tag in body frame</field>
+           <field type="float" name="pitch" units="rad">Euler angle pitch of the tag in body frame</field>
+           <field type="float" name="yaw" units="rad">Euler angle yaw of the tag in body frame</field>
         </message>
         <message id="9008" name="PLANCK_LANDING_TAG_ESTIMATE_GPS">
            <description>State information of the landing tag based on the ground station GPS, adjusted by tag measurements if available</description>

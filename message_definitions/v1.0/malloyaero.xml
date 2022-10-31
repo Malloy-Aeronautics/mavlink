@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<mavlink>
+	<version>2</version>
+	<enums>
+    <enum name="MA_MOUNTSD">
+      <description></description>
+      <entry value="1" name="UNMOUNT_SD"/>
+      <entry value="2" name="MOUNT_SD"/>
+    </enum>     
+    <enum name="MA_LED_PATTERN">
+      <description></description>
+      <entry value="1" name="LEFT_WHITE_LED_ON"/>
+      <entry value="2" name="IR_ON"/>
+      <entry value="3" name="NAV_ON"/>
+      <entry value="4" name="LEFT_WHITE_LED_FLASH"/>
+      <entry value="5" name="LEFT_WHITE_AND_RIGHT_NAV_LED_FLASH"/>        
+    </enum>   
+    <enum name="MA_DROPMECH">
+      <description></description>
+      <entry value="0" name="DM_CLOSE">
+        <description>Drop-mech close</description>
+      </entry>
+      <entry value="1" name="DM_RELEASE">
+        <description>Drop-mech release</description>
+      </entry>
+    </enum>
+    <enum name="MA_HEAT_STATE">
+      <description></description>
+      <entry value="0" name="HEAT_OFF"/>
+      <entry value="255" name="HEAT_ON"/>
+    </enum>
+    <enum name="MAV_CMD">
+      <description>Commands to be executed by the MAV. They can be executed on user request, or as part of a mission script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list is similar what ARINC 424 is for commercial aircraft: A data format how to interpret waypoint/mission data. NaN and INT32_MAX may be used in float/integer params (respectively) to indicate optional/default values (e.g. to use the component's current yaw or latitude rather than a specific value). See https://mavlink.io/en/guide/xml_schema.html#MAV_CMD for information about the structure of the MAV_CMD entries</description>
+      <entry value="33000" name="MAV_CMD_MALLOY_COMPONENT_KILL_LIVE" hasLocation="false" isDestination="false">
+        <description>Kill / Live a component</description>
+        <param index="1" label="Kill" minValue="0" maxValue="1" increment="1">0: Live, 1: Kill</param>
+        <param index="2" label="Top / Bottom ESCs" minValue="0" maxValue="1" increment="1">0: Both, 1: Top, 2: Bottom</param>
+      </entry>
+    </enum>         
+  </enums>
+	<messages>
+    <message id="68" name="MALLOY_MOUNT_SDCARD">
+      <description>Send a message to mount / un-mount the SD Card</description>
+      <field type="uint8_t" name="reserved_1">Reserved 1</field>
+      <field type="uint8_t" name="reserved_2">Reserved 2</field>
+      <field type="uint8_t" name="reserved_3">Reserved 3</field>
+      <field type="uint8_t" name="reserved_4">Reserved 4</field>
+      <field type="uint8_t" name="reserved_5">Reserved 5</field>
+      <field type="uint8_t" name="sd_state" enum="MA_MOUNTSD">Mount / un-mount SD Card</field>
+    </message>   
+    <message id="71" name="MALLOY_LED_CONTROL">
+      <description>Send a message to turn on / off the LED Boards</description>
+      <field type="uint8_t" name="led_CAN_ID">CAN device ID of the LED Boards</field>
+      <field type="uint8_t" name="strobe_led_brightness">Strobe LED brightness (0 to 100%)</field>
+      <field type="uint8_t" name="ir_led_brightness">IR LED brightness (0 to 100%)</field>
+      <field type="uint8_t" name="nav_led_brightness">Nav LED brightness (0 to 100%)</field>
+      <field type="uint8_t" name="led_pattern_msb">LED Pattern (MSB)</field>
+      <field type="uint8_t" name="led_pattern_lsb">LED Pattern (LSB)</field>      
+    </message>       
+    <message id="72" name="MALLOY_DROPMECH_CONTROL">
+      <description>Send a message to release / close the Drop-mech</description>
+      <field type="uint8_t" name="reserved_1">Reserved 1</field>
+      <field type="uint8_t" name="reserved_2">Reserved 2</field>
+      <field type="uint8_t" name="reserved_3">Reserved 3</field>
+      <field type="uint8_t" name="reserved_4">Reserved 4</field>
+      <field type="uint8_t" name="reserved_5">Reserved 5</field>
+      <field type="uint8_t" name="dm_state" enum="MA_DROPMECH">Drop-mech state</field>
+    </message> 
+    <message id="78" name="MALLOY_HEAT_CONTROL">
+      <description>Send a message to switch on / off the HEAT 1 and 2</description>
+      <field type="uint8_t" name="heat_1" enum="MA_HEAT_STATE">State of Heat 1 switch</field>
+      <field type="uint8_t" name="heat_2" enum="MA_HEAT_STATE">State of Heat 2 switch</field>
+      <field type="uint8_t" name="reserved_2">Reserved 2</field>      
+      <field type="uint8_t" name="reserved_3">Reserved 3</field>
+      <field type="uint8_t" name="reserved_4">Reserved 4</field>
+      <field type="uint8_t" name="reserved_5">Reserved 5</field>
+    </message>    
+	</messages>
+</mavlink>
